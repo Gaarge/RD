@@ -42,7 +42,7 @@ nav a:hover {
 
 .banner {
   height: 80vh;
-  background-image: url("../pictures/flag.png");
+  background-image: url("../static/pictures/flag.png");
   background-size: cover;
   background-position: 0px -85px;
   display: flex;
@@ -59,9 +59,8 @@ nav a:hover {
   left: 0;
   right: 0;
   bottom: 0;
-  /*background: rgba(0, 0, 0, 0.5);*/
-  background-color: rgba(0, 0, 0, 0.623); /* Полупрозрачный черный слой */
-  z-index: 1; /* Чтобы слой был над изображением, но под контентом */
+  background-color: rgba(0, 0, 0, 0.65); 
+  z-index: 1;
 }
 
 .banner-content {
@@ -98,10 +97,13 @@ nav a:hover {
   cursor: pointer;
   text-decoration: none;
   transition: box-shadow 0.3s, background-color 0.3s;
+  background: linear-gradient(45deg, #00e0ff, #007bff);
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 .btn:hover {
   box-shadow: 0 0 15px 10px #00e0ff;
+  
 }
 
 section {
