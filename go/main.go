@@ -27,6 +27,10 @@ func renderTemplate(w http.ResponseWriter, tmpl string, data cssDate) {
 
 }
 
+func shop(w http.ResponseWriter, r *http.Request) {
+	renderTemplate(w, "shop", cssDate{CSS: "shop.css"})
+}
+
 func index(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "index", cssDate{CSS: "index.css"})
 }
@@ -34,28 +38,12 @@ func index(w http.ResponseWriter, r *http.Request) {
 func main() {
 
 	http.HandleFunc("/", index)
+	http.HandleFunc("/shop", shop)
 
 	staticDir := http.Dir("../static")
 	staticHandler := http.FileServer(staticDir)
 	staticHandler = http.StripPrefix("/static/", staticHandler)
 	http.Handle("/static/", staticHandler)
 
-	/*
-
-		mainDir := http.Dir("../templates")
-		templatesHandler := http.FileServer(mainDir)
-		http.Handle("/", templatesHandler)
-
-		staticDir := http.Dir("../static")
-		staticHandler := http.FileServer(staticDir)
-		templatesHandler = http.StripPrefix("/static/", staticHandler)
-		http.Handle("/static/", templatesHandler)
-
-
-			picturesDir := http.Dir("../pictures")
-			picturesHandler := http.FileServer(picturesDir)
-			picturesHandler = http.StripPrefix("/pictures/", picturesHandler)
-			http.Handle("/pictures/", picturesHandler)
-	*/
 	http.ListenAndServe(":8080", nil)
 }
