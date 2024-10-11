@@ -1,51 +1,139 @@
 {{ define "content" }} 
+<div class="products">
+  <div class="full-card">
 
-<table width="100%">
-    <tr>
-      <td align="left">
-        <div class="full-card">
-          <div class="img">
-            <img src="../static/pictures/11.jpg" class="drons">
-          </div>
-          <div class="info">
-            <h3 class="product-title">Drone Model 1</h3>
-            <p class="product-price">₽49,990</p>
-            <div class="buy">
-              <button class="buy-btn">Купить</button>
-            </div>
-          </div>
-        </div>
-      </td>
-      <td align="center">
-        <div class="full-card">
-          <div class="img">
-            <img src="../static/pictures/12.jpg" class="drons">
-          </div>
-          <div class="info">
-            <h3 class="product-title">Drone Model 2</h3>
-            <p class="product-price">₽59,990</p>
-            <div class="buy">
-              <button class="buy-btn">Купить</button>
-            </div>
-          </div>
-        </div>
-      </td>
-      <td align="right">
-        <div class="full-card">
-          <div class="img">
-            <img src="../static/pictures/13.jpg" class="drons">
-          </div>
-          <div class="info">
-            <h3 class="product-title">Drone Model 3</h3>
-            <p class="product-price">₽69,990</p>
-            <div class="buy">
-              <button class="buy-btn">Купить</button>
-            </div>
+    <div class="slider">
+
+      
+      <div class="img">
+        <img src="../static/pictures/11.jpg" class="drons">
+    </div>
+    <div class="img">
+        <img src="../static/pictures/12.jpg" class="drons">
+    </div>
+    <div class="img">
+        <img src="../static/pictures/13.jpg" class="drons">
+    </div>
+    <div class="img">
+      <img src="../static/pictures/13.jpg" class="drons">
+    </div>
+      
+      <button class="last" onclick="last()"></button>
+      <button class="next" onclick="next()"></button>
+
+    </div>
+      
+      <div class="info">
+          <h3 class="product-title">Drone Model 1</h3>
+          <p class="product-price">₽49,990</p>
+          <div class="buy">
+            <button class="buy-btn">Купить</button>
           </div>
         </div>
-      </td>
-    </tr>
-  </table>
-  
+      </div>
+    
+      <div class="full-card">
+
+        
+
+          
+    <div class="slider">
+
+      
+      <div class="img">
+          <img src="../static/pictures/11.jpg" class="drons">
+      </div>
+      <div class="img">
+          <img src="../static/pictures/12.jpg" class="drons">
+      </div>
+      <div class="img">
+          <img src="../static/pictures/13.jpg" class="drons">
+      </div>
+      <div class="img">
+        <img src="../static/pictures/13.jpg" class="drons">
+      </div>
+      
+      <button class="last" onclick="last()"></button>
+      <button class="next" onclick="next()"></button>
+
+    </div>
+
+
+        <div class="info">
+          <h3 class="product-title">Drone Model 2</h3>
+          <p class="product-price">₽59,990</p>
+          <div class="buy">
+            <button class="buy-btn">Купить</button>
+          </div>
+        </div>
+      </div>
+    
+      <div class="full-card">
+        
+    <div class="slider">
+
+      
+      <div class="img">
+        <img src="../static/pictures/11.jpg" class="drons">
+    </div>
+    <div class="img">
+        <img src="../static/pictures/12.jpg" class="drons">
+    </div>
+    <div class="img">
+        <img src="../static/pictures/13.jpg" class="drons">
+    </div>
+    <div class="img">
+      <img src="../static/pictures/13.jpg" class="drons">
+    </div>
+      
+      <button class="last" onclick="last()"></button>
+      <button class="next" onclick="next()"></button>
+
+    </div>
+        <div class="info">
+          <h3 class="product-title">Drone Model 3</h3>
+          <p class="product-price">₽69,990</p>
+          <div class="buy">
+            <button class="buy-btn">Купить</button>
+          </div>
+        </div>
+      </div>
+    
+</div>
+
+
+<script>
+// Функция для показа слайдов с учётом конкретного слайдера:
+function initSlider(slider) {
+  let slides = slider.getElementsByClassName('img');
+  let slideIndex = 1;
+  showSlides(slider, slideIndex);
+
+  slider.querySelector('.next').addEventListener('click', () => {
+      showSlides(slider, slideIndex += 1);
+  });
+
+  slider.querySelector('.last').addEventListener('click', () => {
+      showSlides(slider, slideIndex -= 1);
+  });
+
+  function showSlides(slider, n) {
+      if (n > slides.length) {
+          slideIndex = 1;
+      }
+      if (n < 1) {
+          slideIndex = slides.length;
+      }
+
+      for (let slide of slides) {
+          slide.style.display = 'none';
+      }
+      slides[slideIndex - 1].style.display = 'block';
+  }
+}
+
+// Инициализация всех слайдеров на странице:
+document.querySelectorAll('.slider').forEach(initSlider);
+</script>
 
 {{ end }}
