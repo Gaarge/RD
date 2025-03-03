@@ -14,7 +14,6 @@ func renderTemplate(w http.ResponseWriter, tmpl string, data cssDate) {
 	templates, err := template.ParseFiles(
 		"../templates/base.html",
 		"../templates/header.html",
-		"../templates/footer.html",
 		"../templates/"+tmpl+".html",
 	)
 	if err != nil {
@@ -27,6 +26,22 @@ func renderTemplate(w http.ResponseWriter, tmpl string, data cssDate) {
 
 }
 
+func register(w http.ResponseWriter, r *http.Request) {
+	renderTemplate(w, "register", cssDate{CSS: "login.css"})
+}
+
+func about(w http.ResponseWriter, r *http.Request) {
+	renderTemplate(w, "about", cssDate{CSS: "about.css"})
+}
+
+func bad_pass(w http.ResponseWriter, r *http.Request) {
+	renderTemplate(w, "bad_pass", cssDate{CSS: "login.css"})
+}
+
+func login(w http.ResponseWriter, r *http.Request) {
+	renderTemplate(w, "login", cssDate{CSS: "login.css"})
+}
+
 func shop(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "shop", cssDate{CSS: "shop.css"})
 }
@@ -34,11 +49,19 @@ func shop(w http.ResponseWriter, r *http.Request) {
 func index(w http.ResponseWriter, r *http.Request) {
 	renderTemplate(w, "index", cssDate{CSS: "index.css"})
 }
+func lkp(w http.ResponseWriter, r *http.Request) {
+	renderTemplate(w, "lkp", cssDate{CSS: "lkp.css"})
+}
 
 func main() {
 
 	http.HandleFunc("/", index)
 	http.HandleFunc("/shop", shop)
+	http.HandleFunc("/register", register)
+	http.HandleFunc("/login", login)
+	http.HandleFunc("/lkp", lkp)
+	http.HandleFunc("/about", about)
+	http.HandleFunc("/bad_pass", bad_pass)
 
 	staticDir := http.Dir("../static")
 	staticHandler := http.FileServer(staticDir)

@@ -1,0 +1,13 @@
+{{define "content"}}
+<h2>Вход</h2>
+<form action="http://127.0.0.1:8081/login" method="post">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required><br><br>
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="password" required><br><br>
+    <button type="submit">Войти</button>
+</form>
+
+<a href="/register" class="aa">Еще не зарегистрированы?</a>
+
+{{end}}

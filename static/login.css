@@ -1,0 +1,87 @@
+form {
+  width: 100%;
+  max-width: 500px; 
+  margin: 80px auto;
+  padding: 30px;
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 224, 255, 0.5);
+  text-align: left;
+}
+
+h2 {
+  text-align: center;
+  color: #00e0ff;
+  font-size: 36px; 
+  margin-top: 100px;
+}
+
+form label {
+  display: flex;
+  margin-bottom: 8px;
+  font-size: 16px; 
+  color: #00e0ff;
+}
+
+form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #2a2a2a;
+  color: #fff;
+  font-size: 16px; 
+}
+
+form input:focus {
+  outline: none;
+  border-color: #00e0ff;
+  box-shadow: 0 0 10px #00e0ff;
+}
+
+form button {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px; /* Увеличен размер шрифта кнопки */
+  color: #fff;
+  background: linear-gradient(45deg, #00e0ff, #007bff);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+
+form button:hover {
+  box-shadow: 0 0 8px 4px #00e0ff;
+}
+
+.aa {
+  font-size: 16px; 
+}
+
+.aa:hover {
+  display: block;
+  margin-top: 25px;
+  text-align: center;
+  font-size: 16px; 
+  color: #00e0ff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+form a:hover {
+  color: #007bff;
+}
+
+body {
+  background-color: #121212; 
+  font-family: Arial, sans-serif;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  height: 100vh; 
+  text-align: center;
+}
