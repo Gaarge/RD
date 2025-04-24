@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: register
-        image: gaarge/rd_register:1.5
+        image: gaarge/rd_register:2.3
         ports:
         - containerPort: 8081
 ---

@@ -37,12 +37,12 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 		if err != nil {
 			if err == sql.ErrNoRows {
-				http.Redirect(w, r, "http://stat:8080/bad_pass", http.StatusSeeOther)
+				http.Redirect(w, r, "http://192.168.49.2:30080/bad_pass", http.StatusSeeOther)
 			}
 			return
 		}
 
-		http.Redirect(w, r, "http://stat:8080/lkp", http.StatusSeeOther)
+		http.Redirect(w, r, "http://192.168.49.2:30080/lkp", http.StatusSeeOther)
 	}
 }
 
@@ -65,7 +65,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 		}
 
 		log.Println("Регистрация успешна")
-		http.Redirect(w, r, "http://static:8080/lkp", http.StatusSeeOther)
+		http.Redirect(w, r, "http://192.168.49.2:30080/lkp", http.StatusSeeOther)
 	}
 }
 
