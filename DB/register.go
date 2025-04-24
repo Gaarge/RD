@@ -12,7 +12,7 @@ var db *sql.DB
 
 func initDB() {
 	var err error
-	dsn := "root:123@tcp(127.0.0.1:3306)/russian_D"
+	dsn := "root:123@tcp(mysql:3306)/russian_D"
 	db, err = sql.Open("mysql", dsn)
 	if err != nil {
 		log.Fatalf("Не удалось подключиться к базе данных: %v", err)
@@ -37,12 +37,12 @@ func login(w http.ResponseWriter, r *http.Request) {
 
 		if err != nil {
 			if err == sql.ErrNoRows {
-				http.Redirect(w, r, "http://127.0.0.1:8080/bad_pass", http.StatusSeeOther)
+				http.Redirect(w, r, "http://static-site:8080/bad_pass", http.StatusSeeOther)
 			}
 			return
 		}
 
-		http.Redirect(w, r, "http://127.0.0.1:8080/lkp", http.StatusSeeOther)
+		http.Redirect(w, r, "http://static-site:8080/lkp", http.StatusSeeOther)
 	}
 }
 
@@ -65,7 +65,7 @@ func register(w http.ResponseWriter, r *http.Request) {
 		}
 
 		log.Println("Регистрация успешна")
-		http.Redirect(w, r, "http://127.0.0.1:8080/lkp", http.StatusSeeOther)
+		http.Redirect(w, r, "http://static-site:8080/lkp", http.StatusSeeOther)
 	}
 }
 
